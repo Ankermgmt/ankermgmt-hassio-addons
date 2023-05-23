@@ -1,9 +1,9 @@
 build_from:
-  aarch64: "ghcr.io/kvanzuijlen/ankerctl:v1.0.0"
-  amd64: "ghcr.io/kvanzuijlen/ankerctl:v1.0.0"
-  armv7: "ghcr.io/kvanzuijlen/ankerctl:v1.0.0"
+  aarch64: "ghcr.io/ankermgmt/ankermake-m5-protocol:v1.0.0"
+  amd64: "ghcr.io/ankermgmt/ankermake-m5-protocol:v1.0.0"
+  armv7: "ghcr.io/ankermgmt/ankermake-m5-protocol:v1.0.0"
 labels:
-  org.opencontainers.image.title: "Home Assistant Add-on: AnkerCTL"
-  org.opencontainers.image.description: "AnkerCTL"
-  org.opencontainers.image.source: "https://github.com/AnkerMGMT/AnkerMGMT-homeassistant-addons"
-  org.opencontainers.image.licenses: "Apache License 2.0"
+  org.opencontainers.image.title: "Home Assistant Add-on: ankerctl"
+  org.opencontainers.image.description: "ankerctl"
+  org.opencontainers.image.source: "https://github.com/ankermgmt/ankermgmt-homeassistant-addons"
+  org.opencontainers.image.licenses: "GPLv3"
