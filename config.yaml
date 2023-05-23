@@ -1,0 +1,12 @@
+name: "AnkerCTL"
+description: "The official AnkerCTL addon"
+version: "1.0.0-5"
+slug: "ankerctl"
+ingress: true
+ingress_port: 4470
+ingress_stream: true
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armv7
