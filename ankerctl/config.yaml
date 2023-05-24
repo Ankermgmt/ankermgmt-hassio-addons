@@ -9,11 +9,15 @@ init: false
 host_network: true
 map:
   - config:rw
+options:
+  flask_host: "0.0.0.0"
+schema:
+  flask_host: str
 arch:
   - aarch64
   - amd64
   - armv7
 ports:
-  "4470": 4470
+  4470/tcp: 4470
 ports_description:
-  "4470": "The webinterface for ankerctl"
+  4470/tcp: "The webinterface for ankerctl"

@@ -1,0 +1,6 @@
+configuration:
+  flask_host:
+    name: "flask bind address"
+    description: "The address flask should bind to. NOTE: binding to 0.0.0.0 means everyone on your network can control your printer!"
+network:
+  4470/TCP: The webserver port (Not used for Ingress)
