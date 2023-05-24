@@ -24,9 +24,6 @@ You have several options to get them answered:
 [aarch64-badge]: https://img.shields.io/badge/aarch64--green.svg?logo=arm
 [amd64-badge]: https://img.shields.io/badge/amd64--green.svg?logo=amd
 [armv7-badge]: https://img.shields.io/badge/armv7--green.svg?logo=arm
-[aarch64no-badge]: https://img.shields.io/badge/aarch64--orange.svg?logo=arm
-[amd64no-badge]: https://img.shields.io/badge/amd64--orange.svg?logo=amd
-[armv7no-badge]: https://img.shields.io/badge/armv7--orange.svg?logo=arm
 [forum]: https://community.home-assistant.io/
 [repository-badge]: https://img.shields.io/badge/Add%20repository%20to%20my-Home%20Assistant-41BDF5?logo=home-assistant&style=for-the-badge
 [repository-url]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fankermgmt%2Fankermgmt-hassio-addons
