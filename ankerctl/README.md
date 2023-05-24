@@ -2,12 +2,10 @@
 ![Arch](https://img.shields.io/badge/dynamic/yaml?color=success&label=Arch&query=%24.arch&url=https%3A%2F%2Fraw.githubusercontent.com%2Fankermgmt%2Fankermgmt-hassio-addons%2Fmaster%2Fankerctl%2Fconfig.yaml)
 
 ## About
----
 [ankerctl](https://github.com/Ankermgmt/ankermake-m5-protocol) provides a web UI for monitoring your AnkerMake 3D printer.
 This addon is based on the docker image provided in https://github.com/Ankermgmt/ankermake-m5-protocol
 
 ## Installation
----
 The installation of this add-on is pretty straightforward and not different in comparison to installing any other add-on.
 
 1. Add this add-ons repository to your Home Assistant instance
@@ -15,12 +13,10 @@ The installation of this add-on is pretty straightforward and not different in c
 2. Install this add-on.
 3. Start the add-on.
 4. Check the logs of the add-on to see if everything went well.
-5. Open the webUI and upload your login.json (see the webUI or [ankerctl](https://github.com/Ankermgmt/ankermake-m5-protocol) for more information.)
+5. Open the web UI and upload your login.json (see the web UI or [ankerctl](https://github.com/Ankermgmt/ankermake-m5-protocol) for more information.)
 
 ## Configuration
----
-WebUI can be found at <http://your-ip:PORT> (default port is 4470).
+Web UI can be found at <http://your-ip:PORT> (default port is 4470).
 
 ## Support
----
-Create an issue on github
+Create an issue on GitHub
