@@ -16,6 +16,8 @@ ENV S6_CMD_WAIT_FOR_SERVICES=1 \
     FLASK_HOST=0.0.0.0 \
     FLASK_PORT=4470
 
+RUN ln -s /root/.config /config
+
 ############
 # 5 Labels #
 ############
