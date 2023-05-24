@@ -10,7 +10,7 @@ host_network: true
 map:
   - config:rw
 options:
-  flask_host: "0.0.0.0"
+  flask_host: "127.0.0.1"
 schema:
   flask_host: str
 arch:
