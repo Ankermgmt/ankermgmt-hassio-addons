@@ -9,17 +9,30 @@ FROM $BUILD_FROM
 # 2 Modify Image #
 ##################
 
+ARG CONFIG_PATH='/data/options.json'
+
+# Add run.sh
+COPY --chmod=755 data/run.sh /
+
 # Set S6 wait time
 ENV S6_CMD_WAIT_FOR_SERVICES=1 \
     S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0 \
-    S6_SERVICES_GRACETIME=0 \
-    FLASK_HOST=0.0.0.0 \
-    FLASK_PORT=4470
+    S6_SERVICES_GRACETIME=0
+# FLASK_HOSTE=$(jq --raw-output '.flask_host // empty' $CONFIG_PATH)
 
 RUN ln -s /root/.config /config
 
+RUN apt-get update && apt-get install -y jq && rm -rf /var/lib/apt/lists/*
+
+################
+# 3 Entrypoint #
+################
+
+ENTRYPOINT ["sh"]
+CMD ["/run.sh"]
+
 ############
-# 5 Labels #
+# 4 Labels #
 ############
 ARG BUILD_ARCH
 ARG BUILD_DATE
