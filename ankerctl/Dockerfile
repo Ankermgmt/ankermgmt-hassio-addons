@@ -12,7 +12,7 @@ FROM $BUILD_FROM
 ARG CONFIG_PATH='/data/options.json'
 
 # Add run.sh
-COPY --chmod=755 data/run.sh /
+COPY data/run.sh /
 
 # Set S6 wait time
 ENV S6_CMD_WAIT_FOR_SERVICES=1 \
