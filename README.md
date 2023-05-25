@@ -1,3 +1,6 @@
+> **NOTE**
+> The addon in this repository should be considered a work in progress!
+
 # ankermgmt hassio addons repository
 ## Installation
 

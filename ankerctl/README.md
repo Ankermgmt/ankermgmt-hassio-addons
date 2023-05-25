@@ -1,3 +1,6 @@
+> **NOTE**
+> The ankerctl addon should be considered a work in progress!
+
 # Home assistant add-on: ankerctl
 ![Arch](https://img.shields.io/badge/dynamic/yaml?color=success&label=Arch&query=%24.arch&url=https%3A%2F%2Fraw.githubusercontent.com%2Fankermgmt%2Fankermgmt-hassio-addons%2Fmaster%2Fankerctl%2Fconfig.yaml)
 
