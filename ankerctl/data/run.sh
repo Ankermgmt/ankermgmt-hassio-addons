@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 CONFIG_PATH=/data/options.json
 
