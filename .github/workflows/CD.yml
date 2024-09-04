@@ -1,0 +1,56 @@
+name: Update AddOn Version
+
+on:
+  workflow_dispatch:
+  schedule:  # TODO: Remove when the repository_dispatch event is configured
+    - cron: '0 0 * * *'  # Run every day at midnight
+  repository_dispatch:
+    types: [update-version]  # Needs to be configured in the repository_dispatch event of the repository
+
+permissions:
+  contents: write
+
+env:
+  # Must be lowercase
+  repository: ankermgmt/ankermake-m5-protocol
+  addon_dir: ankerctl
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest version
+        id: get_version
+        run: |
+          token="$(curl "https://ghcr.io/token?scope=repository:${{ env.repository }}:pull" | awk -F'"' '$0=$4')"
+          _curl(){ curl -H "Authorization: Bearer $token" "$@"; }
+          latest_version=$(_curl -s "https://ghcr.io/v2/${{ env.repository }}/tags/list" | jq -r '.tags[-1]')
+          echo "latest_version=$latest_version" >> $GITHUB_ENV
+          if [ -z "$latest_version" ]; then
+            echo "Failed to get latest version"
+            exit 1
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update version in config.yaml
+        run: |
+          sed -i "s/version: \".*\"/version: \"${{ env.latest_version }}\"/g" ${{ env.addon_dir }}/config.yaml
+
+      - name: Update version in build.yaml
+        run: |
+          cat ${{ env.addon_dir }}/build.yaml | perl -pe 's/(ghcr\.io.+\:).+\"/\1\2${{ env.latest_version }}\"/g' > ${{ env.addon_dir }}/_build.yaml
+          mv ${{ env.addon_dir }}/_build.yaml ${{ env.addon_dir }}/build.yaml
+
+      - name: Sync remote changelog
+        run: |
+          curl -s "https://api.github.com/repos/${{ env.repository }}/contents/CHANGELOG.md" | jq -r '.content' | base64 -d > ${{ env.addon_dir }}/CHANGELOG.md
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git add ${{ env.addon_dir }}/config.yaml ${{ env.addon_dir }}/build.yaml ${{ env.addon_dir }}/CHANGELOG.md
+          git commit -am "[auto] Update version to ${{ env.latest_version }}" && git push || echo "No changes to commit"
